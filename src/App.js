@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Calendar from "react-calendar";
+import Navbar from "./Components/Navbar";
+import "react-calendar/dist/Calendar.css";
+import "./App.css";
 
-function App() {
+function MyApp() {
+  const [value, onChange] = useState(new Date());
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <div className="container cal">
+        <div className="row">
+          <div className="col-6">
+            <Calendar onChange={onChange} value={value} />
+          </div>
+          <div className="col-6">form</div>
+        </div>
+      </div>
+    </>
   );
 }
 
-export default App;
+export default MyApp;
